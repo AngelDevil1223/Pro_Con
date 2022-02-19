@@ -1,0 +1,9 @@
+How to build??
+
+$ make
+
+how to run?
+
+./producer filename.inpf
+
+./consumer filename.binf filename.outf

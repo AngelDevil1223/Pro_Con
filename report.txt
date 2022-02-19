@@ -1,0 +1,23 @@
+producer.c:
+    it takes the name of the input as a CLI argument, then opens the file
+    iterating over each character and adding odd bit parity to it,
+    and writes it to temporary
+    then frame adds control character and split it into multiple
+    chunck of data of lenght 64 bits.
+    transmission error are simulated by makeError() function.
+
+consumer.c:
+    opens the outfile that is created by the producer as a CLI argument 
+    and the out file then iterate over it first it gets the first 3 
+    control character then read the data. Then checks for errors,
+    and report the error to the user and exit
+
+Data Flow :
+    producer.c:
+        character from input file -> goes to parity maker parity maker 
+        -> from there it is written to a temporary file -> simulate error
+        -> write data as chunks of 3 control character and 64 char into outfile
+
+    consumer.c:
+        open the output file from produer.c -> parity removal -> 
+        check for error -> write into output file
